@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="/static/styles/estilo2.css">
+</head>
+<body>
+    <div class="conteudo">
+
+        <form action="/registro" method="post" enctype="multipart/form-data">
+            
+                <div class="header-cadastro">
+                    <div class="container-imagem-perfil">
+                        <img id="preview-perfil" src="/static/assets/icperfil.webp" alt="Pré-visualização da Imagem de Perfil" />
+                        <input type="file" name="imagem" id="imagem" accept="image/*" onchange="previsualizarImagem(event)" required>
+                        <label for="imagem" class="input-file-label">
+                            <i class="fas fa-camera"></i>
+                        </label>
+                    </div>
+                    <h2>Cadastro</h2>
+                </div>
+            
+                <form action="/registro" method="post" enctype="multipart/form-data">
+                    <div class="campo-form"> 
+                        <label for="nome_usuario">Nome:</label>
+                        <input type="text" name="nome_usuario" placeholder="Digite seu nome" required>
+                    </div>
+            
+                    <div class="campo-form"> 
+                        <label for="telefone">Telefone:</label>
+                        <input type="text" name="telefone" placeholder="Digite seu número" required>
+                    </div>
+            
+                    <div class="campo-form">
+                        <label for="senha">Senha:</label>
+                        <input type="password" name="senha" placeholder="Digite sua senha" required>
+                    </div>
+            
+                    <button class="submit" type="submit">Cadastrar</button>
+                    <p class="signin">Já possui conta? <a href="/">Faça login</a></p>
+                </form>
+            </div>            
+    <script>
+        // Função para pré-visualizar a imagem assim que o usuário seleciona um arquivo
+        function previsualizarImagem(event) {
+            var preview = document.getElementById('preview-perfil');
+            preview.src = URL.createObjectURL(event.target.files[0]);
+            preview.onload = function() {
+                URL.revokeObjectURL(preview.src); // Libera a URL para economizar memória
+            }
+        }
+    
+        // Função para abrir o seletor de arquivo ao clicar na imagem de perfil
+        document.getElementById('preview-perfil').addEventListener('click', function() {
+            document.getElementById('imagem').click(); // Aciona o input de arquivo
+        });
+    </script>
+</body>
+</html>
