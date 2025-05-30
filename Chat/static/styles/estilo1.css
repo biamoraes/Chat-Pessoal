@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #e7d2f9;
+    --purple-bg: #8527da;
+    --input-bg: rgba(255, 255, 255, 0.1);
+    --white: #FFFFFF;
+    --light-text: rgba(255, 255, 255, 0.7);
+    --button-bg: #FFFFFF;
+    --button-text: #8527da;
+    --wave-height: 60px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Container principal */
+.conteudo {
+    background-color: var(--purple-bg);
+    padding: 40px 40px calc(40px + var(--wave-height));
+    width: 100%;
+    max-width: 400px;
+    border-radius: 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    color: var(--white);
+    z-index: 1;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px; /* Adicionado margem para responsividade */
+}
+
+/* Efeito de ondas */
+.conteudo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--wave-height);
+    background: 
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' fill='%23ffffff' opacity='0.2'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' fill='%23ffffff' opacity='0.2'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 1200px var(--wave-height);
+    animation: wave 15s linear infinite;
+    z-index: -1;
+}
+
+@keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1200px; }
+}
+
+/* Conteúdo do formulário */
+.conteudo form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Elementos do formulário */
+.conteudo h2 {
+    font-size: 24px;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.campo-form {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.campo-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--light-text);
+    font-size: 14px;
+}
+
+.campo-form input {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--input-bg);
+    border: 1px solid rgba(255, 255, 255, 0.456);
+    border-radius: 22px;
+    font-size: 14px;
+    color: var(--white);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.campo-form input:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.campo-form input:focus {
+    background-color: var(--white);
+    color: #000000;
+    border-color: var(--white);
+}
+
+.campo-form input::placeholder {
+    color: #ffffffb3;
+}
+
+.campo-form input:focus::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-bg);
+    border: none;
+    border-radius: 22px;
+    color: var(--button-text);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signin {
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--light-text);
+}
+
+.signin a {
+    color: var(--white);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.signin a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+    .conteudo {
+        max-width: 90%;
+        min-height: 450px;
+        padding: 30px 30px calc(30px + var(--wave-height));
+    }
+    
+    .conteudo h2 {
+        font-size: 20px;
+    }
+    
+    .campo-form input {
+        padding: 12px;
+    }
+    
+    button[type="submit"] {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .conteudo {
+        max-width: 95%;
+        min-height: 400px;
+        padding: 25px 20px calc(25px + var(--wave-height));
+        margin: 15px;
+        border-radius: 12px;
+    }
+    
+    .conteudo h2 {
+        font-size: 18px;
+    }
+    
+    .campo-form {
+        margin-bottom: 15px;
+    }
+    
+    .campo-form label {
+        font-size: 13px;
+    }
+    
+    .campo-form input {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    button[type="submit"] {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .signin {
+        font-size: 13px;
+    }
+    
+    :root {
+        --wave-height: 50px;
+    }
+}
+
+@media (max-width: 360px) {
+    .conteudo {
+        min-height: 380px;
+        padding: 20px 15px calc(20px + var(--wave-height));
+    }
+    
+    .conteudo h2 {
+        font-size: 16px;
+    }
+    
+    :root {
+        --wave-height: 40px;
+    }
+}
