@@ -7,9 +7,9 @@
 Este projeto é um chat web com várias telas modernas e intuitivas, criado para fins de aprendizado e prática de desenvolvimento front-end e back-end. Ele simula a interface de um sistema de mensagens em tempo real, incluindo páginas de login, cadastro, perfil do usuário, usuários online, configurações e o chat principal.
 
 # 🛠️ Tecnologias Utilizadas
-HTML5 – estrutura de todas as páginas;
+HTML – estrutura de todas as páginas;
 
-CSS3 – estilização visual moderna e responsiva;
+CSS – estilização visual moderna e responsiva;
 
 JavaScript – funcionalidades da interface (ex: botões, animações, interações);
 
